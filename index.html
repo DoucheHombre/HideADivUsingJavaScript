@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Software Changes</title>
+</head>
+
+<body>
+    <div>
+        Choose a pet:
+
+        <select name="pets" id="pet-select" onchange="hideSelectedText(this);">
+            <option value="">--Please choose an option--</option>
+            <option value="dog is">Dog</option>
+            <option value="cat is">Cat</option>
+            <option value="hamster is">Hamster</option>
+        </select>
+    </div>
+
+    <div id="Dog">
+        <H1>DOG</H1>
+    </div>
+    <div id="Cat">
+        <H1>CAT</H1>
+    </div>
+    <div id="Hamster">
+        <H1>HAMSTER</H1>
+    </div>
+    <script>
+        const animals = ["Dog", "Cat", "Hamster"];
+
+        function hideDivs() {
+            document.getElementById(animals[0]).hidden = true;
+            document.getElementById(animals[1]).hidden = true;
+            document.getElementById(animals[2]).hidden = true;
+        }
+
+        hideDivs();
+
+        function hideSelectedText(optionSelected) {
+            hideDivs();
+            for (var i = 0; i < animals.length; i++) {
+                if (optionSelected.options[optionSelected.selectedIndex].text == animals[i]) {
+                    document.getElementById(animals[i]).hidden = false;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
